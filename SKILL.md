@@ -1,5 +1,5 @@
 ---
-name: security-audit-mantis
+name: security-audit-extended
 description: Security guidance and vulnerability review for codebases, APIs, services, CLI tools, libraries, and daemons, with threat modelling, repository-history leads, a graded reproduction ladder, severity calibration, and exploit-chain assembly. Use for security questions, focused reviews, vulnerability research, security audits, or pen tests. Run the complete workflow only for explicit codebase audit or pen-test requests, full/comprehensive/end-to-end reviews, or requested report artifacts.
 ---
 

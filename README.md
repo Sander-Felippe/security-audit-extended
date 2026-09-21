@@ -1,16 +1,16 @@
-# security-audit-mantis
+# security-audit-extended
 
 A source-first, read-only security audit skill for coding agents. It merges Cloudflare's audit workflow with methodology from Google's Mantis skill suite.
 
-**This is an unofficial personal merge.** It is not released, maintained, or endorsed by Cloudflare or Google. Despite the repository name, the base of this work is Cloudflare's skill, not Mantis.
+**This is an unofficial personal merge.** It is not released, maintained, or endorsed by Cloudflare or Google.
 
 ## Who made what
 
 | | |
 | --- | --- |
-| **Cloudflare** — the base | The structure and every rule that makes it trustworthy. Eighteen of their twenty files ship here **byte-identical to upstream**. MIT. |
-| **Google (Mantis)** — the methodology | The ideas in the five companion files. **No Mantis code, prompt text, or file is copied into this repository.** Their skills were read, and the methodology was re-expressed in Cloudflare's vocabulary and bounded by Cloudflare's rules. Apache 2.0, included for attribution. |
-| **This repository** — the merge | Two additive edits to Cloudflare's `SKILL.md` and `VALIDATION-AND-REPORTING.md`, the five companion files, `validate-companion-artifacts.cjs` and its tests, `ORIGIN.md`, and this README. |
+| **Cloudflare** — the base | The structure and every rule that makes it trustworthy: the six phases, the coverage ledger, the verdict contract, the write isolation, the validators. Eighteen of their twenty files ship here **byte-identical to upstream**. MIT. |
+| **Google (Mantis)** — the methodology | The ideas behind the five companion files. **No Mantis code, prompt text, or file is copied into this repository.** Their skills were read, and the methodology was re-expressed in Cloudflare's vocabulary and bounded by Cloudflare's rules. Apache 2.0, included for attribution. |
+| **This repository** — the merge | Two additive edits to Cloudflare's `SKILL.md` and `VALIDATION-AND-REPORTING.md`, the five companion files, `validate-companion-artifacts.cjs` and its tests, `ORIGIN.md`, and this README. MIT. |
 
 [ORIGIN.md](ORIGIN.md) has the file-by-file account, the exact upstream revisions, and the twelve Mantis behaviours that were deliberately dropped with the reason for each.
 
@@ -45,22 +45,37 @@ Plus `validate-companion-artifacts.cjs`, a third validator for the artifacts the
 
 ## Install
 
-Copy the whole folder, not just `SKILL.md`.
+Install the whole folder, not just `SKILL.md`.
 
 **Claude Code**
 
 ```sh
-cp -r security-audit-mantis ~/.claude/skills/          # all projects
-cp -r security-audit-mantis .claude/skills/            # one project
+git clone https://github.com/Sander-Felippe/security-audit-extended.git
+cp -r security-audit-extended ~/.claude/skills/          # all projects
+cp -r security-audit-extended .claude/skills/            # one project only
 ```
 
 **Codex, via the Skills CLI**
 
 ```sh
-npx skills add ./security-audit-mantis --skill security-audit-mantis --agent codex --global
+npx skills add ./security-audit-extended --skill security-audit-extended --agent codex --global
 ```
 
-Cloudflare's original skill can stay installed alongside this one; the names differ.
+Restart the agent afterwards if the skill does not appear.
+
+Cloudflare's original skill can stay installed alongside this one; the skill names differ (`security-audit` upstream, `security-audit-extended` here).
+
+## Use
+
+Ask for a focused review, and the skill answers from the relevant parts without writing files:
+
+> Is this handler's tenant check sufficient?
+
+Ask for an audit, and it runs the complete six-phase workflow and writes its artifacts:
+
+> Run a full security audit of this repository.
+
+The default profile is `standard`. Say `quick` for a bounded first pass, `deep` for a high-stakes target, or name paths to scope the run. A scoped or `quick` run reports itself as partial coverage.
 
 ## Before running a full audit
 
@@ -68,7 +83,7 @@ Cloudflare's original skill can stay installed alongside this one; the names dif
 node --test validate-findings.test.cjs validate-coverage-ledger.test.cjs validate-companion-artifacts.test.cjs
 ```
 
-Expect 130 passing tests.
+All tests must pass; at the current revision there are 130 of them.
 
 Three environment requirements, checked in this order:
 
@@ -82,14 +97,13 @@ Invariant 6 is stricter than Cloudflare's original, which allowed a verifier to 
 
 ## Provenance
 
-See [ORIGIN.md](ORIGIN.md) for the exact upstream revisions, a file-by-file account of what changed, and the twelve Mantis behaviours that were deliberately dropped with the reason for each.
-
-Eighteen of Cloudflare's twenty files are byte-identical to upstream. Only `SKILL.md` and `VALIDATION-AND-REPORTING.md` were modified, additively, and the phase numbering is unchanged so every cross-reference inside the untouched files still resolves.
+Eighteen of Cloudflare's twenty files are byte-identical to upstream. Only `SKILL.md` and `VALIDATION-AND-REPORTING.md` were modified, additively, and the phase numbering is unchanged so every cross-reference inside the untouched files still resolves. [ORIGIN.md](ORIGIN.md) records the exact revisions and how to re-apply the merge when upstream moves.
 
 ## Licences
 
 - Cloudflare's files and the structure they define: MIT — see [LICENSE](LICENSE).
 - Google's Mantis: Apache 2.0 — see [LICENSE-MANTIS](LICENSE-MANTIS). No Mantis code, prompt text, or file is copied here; the licence is included for attribution of the methodology this work derives from.
+- The files original to this repository — the five companions, `validate-companion-artifacts.cjs` and its tests, `ORIGIN.md`, and this README: MIT, same terms as [LICENSE](LICENSE).
 
 ## Responsible use
 

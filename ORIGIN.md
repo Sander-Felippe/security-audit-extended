@@ -94,10 +94,10 @@ node --test validate-findings.test.cjs validate-coverage-ledger.test.cjs validat
 
 Install the whole folder, not just `SKILL.md`.
 
-- **Claude Code** — copy the folder to `~/.claude/skills/security-audit-mantis/` for all projects, or `.claude/skills/security-audit-mantis/` inside a project.
-- **Codex, via the Skills CLI** — `npx skills add "<path>/security-audit-mantis" --skill security-audit-mantis --agent codex --global`. Drop `--global` and run from the project folder to install it locally.
+- **Claude Code** — copy the folder to `~/.claude/skills/security-audit-extended/` for all projects, or `.claude/skills/security-audit-extended/` inside a project.
+- **Codex, via the Skills CLI** — `npx skills add "<path>/security-audit-extended" --skill security-audit-extended --agent codex --global`. Drop `--global` and run from the project folder to install it locally.
 
-The upstream Cloudflare skill can stay installed alongside this one; the names differ.
+The upstream Cloudflare skill can stay installed alongside this one; the skill names differ (`security-audit` upstream, `security-audit-extended` here).
 
 ## Keeping up with upstream
 
