@@ -2,7 +2,17 @@
 
 A source-first, read-only security audit skill for coding agents. It merges Cloudflare's audit workflow with methodology from Google's Mantis skill suite.
 
-**This is an unofficial personal merge.** It is not released, maintained, or endorsed by Cloudflare or Google.
+**This is an unofficial personal merge.** It is not released, maintained, or endorsed by Cloudflare or Google. Despite the repository name, the base of this work is Cloudflare's skill, not Mantis.
+
+## Who made what
+
+| | |
+| --- | --- |
+| **Cloudflare** — the base | The structure and every rule that makes it trustworthy. Eighteen of their twenty files ship here **byte-identical to upstream**. MIT. |
+| **Google (Mantis)** — the methodology | The ideas in the five companion files. **No Mantis code, prompt text, or file is copied into this repository.** Their skills were read, and the methodology was re-expressed in Cloudflare's vocabulary and bounded by Cloudflare's rules. Apache 2.0, included for attribution. |
+| **This repository** — the merge | Two additive edits to Cloudflare's `SKILL.md` and `VALIDATION-AND-REPORTING.md`, the five companion files, `validate-companion-artifacts.cjs` and its tests, `ORIGIN.md`, and this README. |
+
+[ORIGIN.md](ORIGIN.md) has the file-by-file account, the exact upstream revisions, and the twelve Mantis behaviours that were deliberately dropped with the reason for each.
 
 ## What it is
 
