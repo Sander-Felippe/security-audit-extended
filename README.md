@@ -9,8 +9,8 @@ A source-first, read-only security audit skill for coding agents. It merges Clou
 | | |
 | --- | --- |
 | **Cloudflare** — the base | The structure and every rule that makes it trustworthy: the six phases, the coverage ledger, the verdict contract, the write isolation, the validators. Eighteen of their twenty files ship here **byte-identical to upstream**. MIT. |
-| **Google (Mantis)** — the methodology | The ideas behind the five companion files. **No Mantis code, prompt text, or file is copied into this repository.** Their skills were read, and the methodology was re-expressed in Cloudflare's vocabulary and bounded by Cloudflare's rules. Apache 2.0, included for attribution. |
-| **This repository** — the merge | Two additive edits to Cloudflare's `SKILL.md` and `VALIDATION-AND-REPORTING.md`, the five companion files, `validate-companion-artifacts.cjs` and its tests, `ORIGIN.md`, and this README. MIT. |
+| **Google (Mantis)** — the methodology | The ideas behind five of the six companion files. **No Mantis code, prompt text, or file is copied into this repository.** Their skills were read, and the methodology was re-expressed in Cloudflare's vocabulary and bounded by Cloudflare's rules. Apache 2.0, included for attribution. |
+| **This repository** — the merge | Two additive edits to Cloudflare's `SKILL.md` and `VALIDATION-AND-REPORTING.md`, the six companion files, `validate-companion-artifacts.cjs` and its tests, `ORIGIN.md`, and this README. MIT. |
 
 [ORIGIN.md](ORIGIN.md) has the file-by-file account, the exact upstream revisions, and the twelve Mantis behaviours that were deliberately dropped with the reason for each.
 
@@ -31,6 +31,9 @@ The merge keeps Cloudflare's structure intact and re-expresses Mantis's methodol
 | `REPRODUCTION-LADDER.md` | Phases 2 and 3 | Graded local evidence R0–R3a and what each rung may claim |
 | `CALIBRATION.md` | Phase 5b | A named, auditable catalogue of severity caps |
 | `DEDUPE-AND-CHAINS.md` | Phases 3 and 5c | Root-cause identity predicate, merge rules, exploit-chain assembly |
+| `REMEDIATION-HANDOFF.md` | On request, after the audit | Handing confirmed records to [OpenSpec](https://openspec.dev) as a change proposal, without letting the audit's guarantees leak away |
+
+The first five are read inside the six phases. The last is read only when you ask for a remediation proposal; it produces `proposal.md`, `specs/`, `design.md` and `tasks.md` for OpenSpec and still never touches the audited repository.
 
 Plus `validate-companion-artifacts.cjs`, a third validator for the artifacts these companions produce. It checks structure and, more usefully, cross-references: that a `confirmed` record actually reached R3, that calibration only lowered severity, that a chain's links are confirmed and its composite result exceeds the strongest link, and that every fingerprint and coverage ID referenced exists.
 
@@ -103,7 +106,7 @@ Eighteen of Cloudflare's twenty files are byte-identical to upstream. Only `SKIL
 
 - Cloudflare's files and the structure they define: MIT — see [LICENSE](LICENSE).
 - Google's Mantis: Apache 2.0 — see [LICENSE-MANTIS](LICENSE-MANTIS). No Mantis code, prompt text, or file is copied here; the licence is included for attribution of the methodology this work derives from.
-- The files original to this repository — the five companions, `validate-companion-artifacts.cjs` and its tests, `ORIGIN.md`, and this README: MIT, same terms as [LICENSE](LICENSE).
+- The files original to this repository — the six companions, `validate-companion-artifacts.cjs` and its tests, `ORIGIN.md`, and this README: MIT, same terms as [LICENSE](LICENSE).
 
 ## Responsible use
 

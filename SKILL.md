@@ -14,6 +14,7 @@ This edition merges Cloudflare's source-first audit workflow with methodology ta
 | [REPRODUCTION-LADDER.md](REPRODUCTION-LADDER.md) | Phase 2 before executing anything, Phase 3 before a decisive check | Graded local evidence R0–R3a and what each rung may claim |
 | [CALIBRATION.md](CALIBRATION.md) | Phase 5b | Named, auditable catalogue of severity caps |
 | [DEDUPE-AND-CHAINS.md](DEDUPE-AND-CHAINS.md) | Phase 3 for dedupe, Phase 5c for chains | Root-cause identity predicate, merge rules, exploit-chain assembly |
+| [REMEDIATION-HANDOFF.md](REMEDIATION-HANDOFF.md) | Only on explicit request, after Phase 6 | How to hand confirmed records to OpenSpec as a change proposal without weakening what the audit established |
 
 Six invariants govern all five, and outrank anything the companions say:
 
@@ -23,6 +24,8 @@ Six invariants govern all five, and outrank anything the companions say:
 4. **Calibration only lowers.** A calibration rule may reduce a `confirmed` record's severity or leave it alone. It never raises one, never assigns severity to an unconfirmed record, and never changes a verdict.
 5. **Chains are not findings.** A chain never enters `findings.json`, never counts in the finding total, and never alters a link's severity.
 6. **R3 or `needs_validation`.** A `confirmed` record requires a bounded local result at the component's real interface. Everything below that rung is `needs_validation` with the exact promotion blocker named. This is stricter than the original workflow, which allowed a verifier to confirm on source alone when it could not safely reproduce. The consequence is deliberate and must be stated in the report: in an environment with no usable sandbox, this edition produces no `confirmed` records at all, only `needs_validation` with the missing capability named. If that is the wrong trade for a given run, say so and use the unmerged workflow — do not quietly relax the rung.
+
+[REMEDIATION-HANDOFF.md](REMEDIATION-HANDOFF.md) sits outside the six phases. It is read only when the user explicitly asks for a remediation proposal, it writes documents into an OpenSpec change folder rather than into the target, and it does not relax invariant 1: this skill still never applies a fix.
 
 Only two additions spend budget: the optional structural-index build is one agent invocation, and the adversarial-sweep and open-look units are hunter assignments. Both are subject to the strict budget gate below and are the first work deferred when the allowance runs out. Everything else this edition adds is parent-side bookkeeping and costs nothing.
 

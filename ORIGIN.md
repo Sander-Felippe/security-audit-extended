@@ -32,6 +32,7 @@ Nothing was removed from either file. Phase numbering is unchanged, so every cro
 - `REPRODUCTION-LADDER.md` — rungs R0 through R3a, the reached-sink evidence gate, capability checks, environment tiers, and the rules that keep a reproducer from becoming a weapon.
 - `CALIBRATION.md` — the named severity-cap catalogue with a fixed precedence, the attacker-position barrier test, the absolute gates, and stale-evidence suppression.
 - `DEDUPE-AND-CHAINS.md` — the root-cause identity predicate with merge rules, and exploit-chain assembly.
+- `REMEDIATION-HANDOFF.md` — how a finished audit hands its confirmed records to OpenSpec as a change proposal. Outside the six phases, read only on request. Not derived from Mantis; written for this edition.
 - `validate-companion-artifacts.cjs` and `validate-companion-artifacts.test.cjs` — a third validator for this edition's artifacts and their cross-references.
 - `ORIGIN.md` — this file.
 
